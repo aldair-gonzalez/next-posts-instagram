@@ -1,3 +1,14 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": "next/core-web-vitals",
+  "rules": {
+    "eol-last": "error",
+    "quotes": ["error", "single"],
+    "no-trailing-spaces": "error",
+    "no-mixed-spaces-and-tabs": "error",
+    "semi": "error",
+    "no-extra-semi": "error",
+    "no-multi-spaces": "error",
+    "no-multiple-empty-lines": ["error", { "max": 1 }],
+    "indent": ["error", "tab"]
+  }
 }

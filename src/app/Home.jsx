@@ -1,6 +1,8 @@
 async function Home() {
 	return (
-		<div>Home</div>
+		<h1>
+      Instagram posts
+		</h1>
 	);
 }
 export default Home;

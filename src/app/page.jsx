@@ -18,16 +18,14 @@ export default async function Page({ children }) {
 			<div className="w-11/12 mx-auto">
 				<div className="w-full">
 					<h1 className="mt-5 text-center uppercase font-black text-2xl">
-        Instagram posts
+            Instagram posts
 					</h1>
 					<div className="w-full mt-10">
 						{
 							images && images.map((image) => (
 								<Link key={image.id} href={image.permalink} target='_blank'>
-									<Image
+									<img
 										src={image.media_url}
-										width={500}
-										height={500}
 										alt={image.media_type}
 									/>
 								</Link>

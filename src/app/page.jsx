@@ -19,23 +19,35 @@ export default async function Page({ children }) {
 					<h1 className="mt-5 text-center uppercase font-black text-2xl">
             Instagram posts
 					</h1>
-					<p className='text-center mt-5'>
-            Esta app obtiene las útimas publicaciones del perfil de un usuario de Instagram y las muestra en la siguiente galería
+					<p className="text-center mt-5">
+            Esta app obtiene las útimas publicaciones del perfil de un usuario
+            de Instagram y las muestra en la siguiente galería
 					</p>
 					<div className="w-full mt-10 grid grid-cols-2 gap-4">
-						{
-							feed && feed.map((image) => (
-								<Link className='Image-Link overflow-hidden w-full h-full relative' key={image.id} href={image.permalink} target='_blank'>
-									<Image className='w-full h-full' src={image.media_url} alt={image.caption} width={1000} height={1000} />
-									<div className="Image-Overlay pointer-events-none bg-black bg-opacity-50 text-white font-semibold uppercase text-lg absolute w-full h-full top-0 left-0 flex items-center justify-center text-center">
-                    Ver publicación
-									</div>
-								</Link>
-							))
-						}
+						{feed && feed.map((image) => (
+							<Link
+								className="Image-Link overflow-hidden w-full h-full relative"
+								key={image.id}
+								href={image.permalink}
+								target="_blank"
+							>
+								<Image
+									className="w-full h-full"
+									src={image.media_url}
+									alt={image.caption}
+									width={1000}
+									height={1000}
+									unoptimized={true}
+									loading='lazy'
+								/>
+								<div className="Image-Overlay pointer-events-none bg-black bg-opacity-50 text-white font-semibold uppercase text-lg absolute w-full h-full top-0 left-0 flex items-center justify-center text-center">
+                  Ver publicación
+								</div>
+							</Link>
+						))}
 					</div>
 				</div>
-				{ children }
+				{children}
 			</div>
 		</main>
 	);

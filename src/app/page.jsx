@@ -3,10 +3,10 @@ import Link from 'next/link';
 
 const getFeed = async () => {
 	const { INSTAGRAM_KEY } = process.env;
-	const url = `https://graph.instagram.com/me/media?fields=id,caption,media_url,timestamp,media_type,permalink&access_token=${INSTAGRAM_KEY}`;
-	const data = await fetch(url);
-	const res = data.json();
-	return res;
+	const url = `https://graph.instagram.com/me/media?fields=id,caption,media_url,timestamp,media_type,permalink,thumbnail&access_token=${INSTAGRAM_KEY}`;
+	const res = await fetch(url);
+	const data = res.json();
+	return data;
 };
 
 export default async function Page({ children }) {
@@ -27,7 +27,7 @@ export default async function Page({ children }) {
 						{
 							images && images.map((image) => (
 								<Link className='Image-Link overflow-hidden w-full h-full relative' key={image.id} href={image.permalink} target='_blank'>
-									<img className='w-full h-full' src={image.media_url} alt={image.media_type} />
+									<Image className='w-full h-full' src={image.media_url} alt={image.caption} width={1000} height={1000} />
 									<div className="Image-Overlay pointer-events-none bg-black bg-opacity-50 text-white font-semibold uppercase text-lg absolute w-full h-full top-0 left-0 flex items-center justify-center text-center">
                     Ver publicación
 									</div>
